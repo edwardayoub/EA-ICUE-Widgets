@@ -1,0 +1,48 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release ZIPs
+        run: |
+          chmod +x tools/build-release.sh
+          tools/build-release.sh
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          PREV_TAG=$(git tag --sort=-creatordate | sed -n '2p')
+          if [ -z "$PREV_TAG" ]; then
+            COMMITS=$(git log --format="- %s" --no-merges)
+          else
+            COMMITS=$(git log "$PREV_TAG"..HEAD --format="- %s" --no-merges)
+          fi
+          # Strip Co-Authored-By lines and deduplicate
+          COMMITS=$(echo "$COMMITS" | grep -v "^$" | head -50)
+          {
+            echo "body<<RELEASE_EOF"
+            echo "## Changes"
+            echo ""
+            echo "$COMMITS"
+            echo ""
+            echo "RELEASE_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.zip
+            dist/*.icuewidget
+          body: ${{ steps.notes.outputs.body }}

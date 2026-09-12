@@ -1,0 +1,13 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+    <!-- Usage bars -->
+    <rect x="1" y="10" width="3" height="5" fill="#FFFFFF"/>
+    <rect x="6" y="6" width="3" height="9" fill="#FFFFFF"/>
+    <rect x="11" y="2" width="3" height="13" fill="#FFFFFF" opacity="0.5"/>
+    <!-- Asterisk (Claude) -->
+    <g stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round">
+        <line x1="4" y1="1" x2="4" y2="7"/>
+        <line x1="1" y1="4" x2="7" y2="4"/>
+        <line x1="1.9" y1="1.9" x2="6.1" y2="6.1"/>
+        <line x1="6.1" y1="1.9" x2="1.9" y2="6.1"/>
+    </g>
+</svg>

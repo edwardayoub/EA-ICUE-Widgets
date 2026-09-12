@@ -1,0 +1,86 @@
+{
+  "en": {
+    "translation": {
+      "EA Claude Usage": "EA Claude Usage",
+      "Claude Usage": "Claude Usage",
+      "Widget Personalization": "Widget Personalization",
+      "Server Port": "Server Port",
+      "Main Number": "Main Number",
+      "Cost": "Cost",
+      "Tokens": "Tokens",
+      "Show Active Sessions": "Show Active Sessions",
+      "Custom Title": "Custom Title",
+      "Background Image": "Background Image",
+      "Glass Blur": "Glass Blur",
+      "Text Color": "Text Color",
+      "Accent Color": "Accent Color",
+      "Input Color": "Input Color",
+      "Cache Color": "Cache Color",
+      "Background Color": "Background Color",
+      "Transparency": "Transparency"
+    }
+  },
+  "de": {
+    "translation": {
+      "EA Claude Usage": "EA Claude-Nutzung",
+      "Claude Usage": "Claude-Nutzung",
+      "Widget Personalization": "Widget-Personalisierung",
+      "Server Port": "Server-Port",
+      "Main Number": "Hauptwert",
+      "Cost": "Kosten",
+      "Tokens": "Tokens",
+      "Show Active Sessions": "Aktive Sitzungen anzeigen",
+      "Custom Title": "Eigener Titel",
+      "Background Image": "Hintergrundbild",
+      "Glass Blur": "Glas-Unschärfe",
+      "Text Color": "Textfarbe",
+      "Accent Color": "Akzentfarbe",
+      "Input Color": "Eingabefarbe",
+      "Cache Color": "Cache-Farbe",
+      "Background Color": "Hintergrundfarbe",
+      "Transparency": "Transparenz"
+    }
+  },
+  "fr": {
+    "translation": {
+      "EA Claude Usage": "EA Utilisation Claude",
+      "Claude Usage": "Utilisation Claude",
+      "Widget Personalization": "Personnalisation du widget",
+      "Server Port": "Port du serveur",
+      "Main Number": "Valeur principale",
+      "Cost": "Coût",
+      "Tokens": "Jetons",
+      "Show Active Sessions": "Afficher les sessions actives",
+      "Custom Title": "Titre personnalisé",
+      "Background Image": "Image d'arrière-plan",
+      "Glass Blur": "Flou de verre",
+      "Text Color": "Couleur du texte",
+      "Accent Color": "Couleur d'accentuation",
+      "Input Color": "Couleur d'entrée",
+      "Cache Color": "Couleur du cache",
+      "Background Color": "Couleur d'arrière-plan",
+      "Transparency": "Transparence"
+    }
+  },
+  "es": {
+    "translation": {
+      "EA Claude Usage": "EA Uso de Claude",
+      "Claude Usage": "Uso de Claude",
+      "Widget Personalization": "Personalización del widget",
+      "Server Port": "Puerto del servidor",
+      "Main Number": "Valor principal",
+      "Cost": "Costo",
+      "Tokens": "Tokens",
+      "Show Active Sessions": "Mostrar sesiones activas",
+      "Custom Title": "Título personalizado",
+      "Background Image": "Imagen de fondo",
+      "Glass Blur": "Desenfoque de vidrio",
+      "Text Color": "Color del texto",
+      "Accent Color": "Color de acento",
+      "Input Color": "Color de entrada",
+      "Cache Color": "Color de caché",
+      "Background Color": "Color de fondo",
+      "Transparency": "Transparencia"
+    }
+  }
+}

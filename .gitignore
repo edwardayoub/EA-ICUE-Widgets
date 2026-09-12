@@ -1,0 +1,10 @@
+node_modules/
+*.png
+# Marketplace listing icons are intentionally tracked
+!widgets/*/icon.png
+!widgets/*/icon@2x.png
+dist/
+.claude/
+docs/Touchscreen_Design_Guidelines.md
+tools/.cache/
+tools/output/

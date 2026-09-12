@@ -1,0 +1,20 @@
+{
+  "author": "Edward Ayoub",
+  "id": "com.edwardayoub.claudeusage",
+  "name": "Claude Usage",
+  "description": "Live Claude Code token usage and API-equivalent cost meter, fed by a local companion server.",
+  "version": "1.0.0",
+  "preview_icon": "icon.png",
+  "min_framework_version": "1.0.0",
+  "os": [
+    {
+      "platform": "windows"
+    }
+  ],
+  "supported_devices": [
+    {
+      "type": "dashboard_lcd"
+    }
+  ],
+  "min_app_version": "5.45"
+}
