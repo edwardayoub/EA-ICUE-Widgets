@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // tools/generate-manifests.js
 // Generates manifest.json for each EA widget for Marketplace submission.
-// Run from repo root: node tools/generate-manifests.js
+// Run from repo root: node tools/generate-manifests.js [--private]
+//   --private: use private/manifests.js and write into private/widgets/ (gitignored tree)
 
 const fs = require('fs');
 const path = require('path');
@@ -14,7 +15,9 @@ const VERSION = '1.0.0';
 // accept only 'windows'; iCUE 5.x import also rejects 'macos'.
 const OS = [{ platform: 'windows' }];
 
-const widgets = [
+const PRIVATE = process.argv.includes('--private');
+
+const publicWidgets = [
   {
     folder: 'EAClaudeUsage',
     id: 'com.edwardayoub.claudeusage',
@@ -26,7 +29,10 @@ const widgets = [
   },
 ];
 
-const widgetsDir = path.join(__dirname, '..', 'widgets');
+const widgets = PRIVATE ? require('../private/manifests.js') : publicWidgets;
+const widgetsDir = PRIVATE
+  ? path.join(__dirname, '..', 'private', 'widgets')
+  : path.join(__dirname, '..', 'widgets');
 
 for (const w of widgets) {
   const manifest = {

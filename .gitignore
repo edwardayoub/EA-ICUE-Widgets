@@ -8,3 +8,5 @@ dist/
 docs/Touchscreen_Design_Guidelines.md
 tools/.cache/
 tools/output/
+archive/
+private/

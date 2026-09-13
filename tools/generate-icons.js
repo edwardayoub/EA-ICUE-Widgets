@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 // tools/generate-icons.js
 // Generates icon.png (256x256) and icon@2x.png (512x512) for each EA widget.
-// Run from repo root: node tools/generate-icons.js
+// Run from repo root: node tools/generate-icons.js [--private]
+//   --private: render every private/widgets/EA*/ folder instead (gitignored tree)
 // Requires: puppeteer (already installed)
 
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const WIDGETS_DIR = path.join(__dirname, '..', 'widgets');
+const PRIVATE = process.argv.includes('--private');
+const WIDGETS_DIR = PRIVATE
+  ? path.join(__dirname, '..', 'private', 'widgets')
+  : path.join(__dirname, '..', 'widgets');
 const SIZES = [
   { size: 256, filename: 'icon.png' },
   { size: 512, filename: 'icon@2x.png' },
@@ -25,9 +29,11 @@ const TERTIARY    = '#ffae30'; // amber
 // Widgets with multi-color treatment are handled in colorize().
 const ICON_COLOR = PRIMARY;
 
-const folders = [
-  'EAClaudeUsage',
-];
+const folders = PRIVATE
+  ? fs.readdirSync(WIDGETS_DIR).filter(f => f.startsWith('EA') && fs.statSync(path.join(WIDGETS_DIR, f)).isDirectory())
+  : [
+    'EAClaudeUsage',
+  ];
 
 // Colorize SVG for PNG rendering. Most widgets get a flat primary color.
 // Special widgets get multi-color treatment.

@@ -5,7 +5,7 @@
 This repo contains Edward Ayoub's custom iCUE widgets for Corsair LCD displays, built for iCUE's native widget system (Qt WebEngine / Chromium 130). All widgets are self-contained single-HTML-file applications with no external dependencies.
 
 Reference material:
-- `../EA-ICUE-Widgets-archive/upstream-snapshot-2026-09-12/`: local-only, untracked snapshot of the 22 widgets, site page, and probe tools inherited from QuadraKev/QK-iCUE-Widgets (MIT). Use it as a pattern library (e.g. `widgets/EAWeather` for a fetch-based widget, `widgets/EAXEVisualizer` for a WebSocket companion server, `widgets/EAPaint` for a touch-heavy interactive widget). Never copy a whole widget back into this repo without explicit approval.
+- `archive/upstream-snapshot-2026-09-12/`: local-only, gitignored snapshot of the 22 widgets, site page, and probe tools inherited from QuadraKev/QK-iCUE-Widgets (MIT). Use it as a pattern library (e.g. `widgets/EAWeather` for a fetch-based widget, `widgets/EAXEVisualizer` for a WebSocket companion server, `widgets/EAPaint` for a touch-heavy interactive widget). Never copy a whole widget back into this repo without explicit approval.
 - `docs/Touchscreen_Design_Guidelines.md`: touch target sizing and UI design principles (local-only, gitignored, may be absent)
 
 ## Target Devices
@@ -75,6 +75,7 @@ EA-ICUE-Widgets/
   widgets/          All widgets (one EA{PascalCase} folder each)
   tools/            Build, screenshot, manifest, and icon-generation scripts
   dist/             Release ZIP output (gitignored)
+  private/          Private widgets, never committed (gitignored; see "Private Widgets" below)
   .github/          CI workflows (release.yml)
 ```
 
@@ -97,6 +98,32 @@ widgets/EA{WidgetName}/
 Device compatibility is encoded in each widget's `manifest.json` (`supported_devices`) and HTML via `x-icue-restriction` meta tags.
 
 Widgets that ship companion software (`EAClaudeUsage/server/ClaudeUsageServer.pyw`) get packaged as separate ZIPs by `tools/build-release.sh`. Companion servers expose `http://localhost:<port>` with `Access-Control-Allow-Origin: *`; widgets poll them with `fetch()`.
+
+## Private Widgets
+
+Widgets that must not be shared live under `private/` (gitignored; the repo may become public). The tree mirrors the public one:
+
+```
+private/
+  README.md         Layout and workflow notes
+  manifests.js      Manifest entries for private widgets (same shape as the array in tools/generate-manifests.js)
+  widgets/EA*/      Private widget folders, same structure as widgets/EA*/
+  dist/             Build output for private widgets
+```
+
+Every tool takes `--private` to operate on this tree instead of `widgets/`:
+
+```
+node tools/generate-manifests.js --private   # reads private/manifests.js
+node tools/generate-icons.js --private       # renders every private/widgets/EA*/ (flat primary color)
+tools/build-release.sh --private             # writes private/dist/EA*.icuewidget; skips the companion server
+node tools/screenshot.js private/widgets/EAFoo/index.html L
+```
+
+Rules:
+- Never move, copy, or reference a private widget in `widgets/`, `README.md`, `tools/generate-manifests.js`, or `tools/generate-icons.js` without explicit approval. Publishing one means moving its folder to `widgets/` and its manifest entry into the public array.
+- Private widgets follow every design and API rule in this file; only their location differs.
+- CI never sees `private/`, so private widgets are never part of a release.
 
 ## Widget Inventory
 

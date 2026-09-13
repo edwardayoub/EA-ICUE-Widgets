@@ -8,12 +8,20 @@
 # builds an all-widgets bundle.
 # Output goes to dist/.
 #
-# Usage: ./tools/build-release.sh
+# Usage: ./tools/build-release.sh [--private]
+#   --private: package private/widgets/EA*/ into private/dist/ instead (gitignored tree)
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+WIDGETS_DIR="$REPO_ROOT/widgets"
 DIST="$REPO_ROOT/dist"
+PRIVATE=0
+if [ "${1:-}" = "--private" ]; then
+    PRIVATE=1
+    WIDGETS_DIR="$REPO_ROOT/private/widgets"
+    DIST="$REPO_ROOT/private/dist"
+fi
 
 rm -rf "$DIST"
 mkdir -p "$DIST"
@@ -24,7 +32,7 @@ COUNT=0
 # Widgets to exclude from release builds
 EXCLUDE_WIDGETS="EATest"
 
-for WIDGET_DIR in "$REPO_ROOT"/widgets/EA*/; do
+for WIDGET_DIR in "$WIDGETS_DIR"/EA*/; do
     [ -d "$WIDGET_DIR" ] || continue
 
     # Skip directories without an index.html
@@ -73,9 +81,9 @@ fi
 
 rm -rf "$BUNDLE_DIR"
 
-# Package Claude Usage companion server as a ZIP
+# Package Claude Usage companion server as a ZIP (public builds only)
 CU_SERVER_DIR="$REPO_ROOT/widgets/EAClaudeUsage/server"
-if [ -f "$CU_SERVER_DIR/ClaudeUsageServer.pyw" ]; then
+if [ "$PRIVATE" -eq 0 ] && [ -f "$CU_SERVER_DIR/ClaudeUsageServer.pyw" ]; then
     CU_STAGE=$(mktemp -d)
     cp "$CU_SERVER_DIR"/ClaudeUsageServer.pyw "$CU_STAGE/"
     cp "$CU_SERVER_DIR"/StartServer.bat "$CU_STAGE/" 2>/dev/null || true
