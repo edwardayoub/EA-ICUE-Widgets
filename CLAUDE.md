@@ -277,7 +277,7 @@ Widgets are installed by importing `.icuewidget` files through iCUE's **+** butt
 - All-widgets bundle: `all-widgets-{tag}.zip`
 - Companion server: `ClaudeUsageServer.zip`
 - Release notes are auto-generated from commit messages between the previous tag and the new tag (Co-Authored-By lines stripped, capped at 50 commits)
-- Install link: `[Releases](https://github.com/edwardayoub/EA-ICUE-Widgets/releases)` (repo is private)
+- Install link: `[Releases](https://github.com/edwardayoub/EA-ICUE-Widgets/releases)` (repo is public; keep anything not meant to be shared under `private/`)
 
 ### Versioning
 
