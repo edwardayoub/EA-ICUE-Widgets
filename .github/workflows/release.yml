@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history + tags, needed for PREV_TAG..HEAD release notes
 
       - name: Build release ZIPs
         run: |
