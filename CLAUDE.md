@@ -127,10 +127,11 @@ Rules:
 
 ## Widget Inventory
 
-### Xeneon Edge (1 widget)
+### Xeneon Edge (2 widgets)
 | Widget | Folder | Interactive | Description |
 |--------|--------|-------------|-------------|
 | Claude Usage | EAClaudeUsage | No | Claude Code token/cost meter; polls `server/ClaudeUsageServer.pyw` on localhost:16330 |
+| Home Control | EAHomeControl | Yes | Home Assistant control via its WebSocket API (long-lived token in widget settings); Rooms drill-down or flat layout; URL `demo` shows a fake house |
 
 ## iCUE Widget Technical Notes
 

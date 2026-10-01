@@ -7,6 +7,7 @@ Custom widgets for the Corsair Xeneon Edge, built for iCUE's native widget syste
 | Widget | Description |
 |--------|-------------|
 | [Claude Usage](widgets/EAClaudeUsage) | Live Claude Code token and API-equivalent cost meter with 24-hour and 7-day history, per-model breakdown, and active sessions. Fed by a small local companion server. |
+| [Home Control](widgets/EAHomeControl) | Touch control for Home Assistant: rooms you tap into, lights, switches, fans, thermostats, covers, locks, media and sensors, updating live. Connects directly to Home Assistant; no companion server. |
 
 ## Installation
 

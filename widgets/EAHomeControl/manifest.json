@@ -1,0 +1,21 @@
+{
+  "author": "Edward Ayoub",
+  "id": "com.edwardayoub.homecontrol",
+  "name": "Home Control",
+  "description": "Touch control for Home Assistant lights, switches, climate, covers, locks, media and sensors.",
+  "version": "0.1.0",
+  "preview_icon": "icon.png",
+  "min_framework_version": "1.0.0",
+  "os": [
+    {
+      "platform": "windows"
+    }
+  ],
+  "supported_devices": [
+    {
+      "type": "dashboard_lcd"
+    }
+  ],
+  "min_app_version": "5.45",
+  "interactive": true
+}

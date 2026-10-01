@@ -1,0 +1,26 @@
+{
+  "en": {
+    "translation": {
+      "EA Home Control": "EA Home Control",
+      "Home Control": "Home Control",
+      "Widget Personalization": "Widget Personalization",
+      "Home Assistant URL": "Home Assistant URL",
+      "Access Token": "Access Token",
+      "Device Label": "Device Label",
+      "Custom Title": "Custom Title",
+      "Background Image": "Background Image",
+      "Glass Blur": "Glass Blur",
+      "Text Color": "Text Color",
+      "Active Color": "Active Color",
+      "Sensor Color": "Sensor Color",
+      "Background Color": "Background Color",
+      "Transparency": "Transparency",
+      "Show Devices": "Show Devices",
+      "All": "All",
+      "Labeled Only": "Labeled Only",
+      "Layout": "Layout",
+      "Rooms": "Rooms",
+      "All Devices": "All Devices"
+    }
+  }
+}

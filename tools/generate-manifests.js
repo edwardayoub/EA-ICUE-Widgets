@@ -27,6 +27,15 @@ const publicWidgets = [
     interactive: false,
     version: '1.0.0',
   },
+  {
+    folder: 'EAHomeControl',
+    id: 'com.edwardayoub.homecontrol',
+    name: 'Home Control',
+    description: 'Touch control for Home Assistant lights, switches, climate, covers, locks, media and sensors.',
+    devices: [{ type: 'dashboard_lcd' }],
+    interactive: true,
+    version: '0.1.0',
+  },
 ];
 
 const widgets = PRIVATE ? require('../private/manifests.js') : publicWidgets;
